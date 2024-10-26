@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element -->
+<!-- https://youtu.be/nXEyJoRjkC8?t=1001 i watched this video to get an general overview of how i should approach uploading files to server with flask
+https://youtu.be/nXEyJoRjkC8?t=1677 some timestamps of the stuff i copied not (it is modified though) -->
+<h2>Journal Entry</h2>
+<form action="" method="post" enctype="multipart/form-data" id="journal">
+    <label for="text">Your Journal:</label><br>
+    <textarea id="text" name="text" rows="12" cols="50"></textarea><br>
+    <label for="file">Upload an image:</label>
+    <input type="file" id="file" name="file" multiple><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
+

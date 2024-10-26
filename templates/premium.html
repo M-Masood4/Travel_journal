@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+
+<h1>Shop</h1>
+<main id="product1">
+<h3>Travel-Lite</h3>
+<p >$2.99<br><br>
+With Travel-Lite you get extra 5GB of storage
+</p>
+
+<form action="{{ url_for('add_to_cart') }}" method="POST">
+    <input type="hidden" name="item_name" value="Travel-Lite">
+    <input type="hidden" name="item_price" value="2.99">
+    <button type="submit">Add to Cart</button>
+</form>
+</main>
+
+{% endblock %}

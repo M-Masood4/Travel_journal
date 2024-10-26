@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+{% block main_content %}
+
+<!-- gotten from the video i mentioned earlier https://stackoverflow.com/questions/4526273/what-does-enctype-multipart-form-data-mean -->
+<h2>Account Settings</h2>
+    <form action="{{ url_for('account') }}" method="post" enctype="multipart/form-data" id="profile">
+        <label for="profile_picture">Update Profile Picture:</label>
+        <input type="file" name="profile_picture" id="profile_picture"><br><br>
+        <input type="submit" value="Update Picture" class="submit">
+    </form>
+    <br>
+    <form action="{{ url_for('change_password') }}" method="post" id="password">
+        <label for="new_password">New Password:</label>
+        <input type="password" name="new_password" id="new_password"><br><br>
+        <input type="submit" value="Change Password" class="submit">
+    </form>
+    
+    
+{% endblock %}

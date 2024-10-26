@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel-Journal</title>
+    <!DOCTYPE html>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- bootstrap nav bar https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_navbar_right&stacked=h it is modified (i added more stuff) -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ url_for('index') }}">Travel-Journal</a>
+            </div>
+            {% if g.user %}
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Journal <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('journal_entry') }}">Upload Your Journal</a></li>
+                        <li><a href="{{ url_for('myfeed') }}">Your Feed</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('premium') }}"">Premium</a></li>
+            </ul>
+            {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+                {% if g.user %}
+                <li><a href="{{ url_for('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+                <li><a href="{{ url_for('account') }}"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+                <li><a href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                {% else %}
+                <li><a href="{{ url_for('register') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+</head>
+
+<body>
+
+    {% block main_content %}
+
+    {% endblock %}
+
+</body>

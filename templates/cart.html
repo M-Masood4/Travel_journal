@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+<h1>Your Cart</h1>
+
+{% if cart %}
+<ul id="cart">
+    {% for item in cart %}
+    <li>Name: {{ item.name }}, Price: ${{ item.price }}</li>
+    <a href="{{ url_for('index') }}"><button type="submit">Buy</button></a>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+{% endblock %}

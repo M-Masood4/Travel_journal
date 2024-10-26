@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+
+<p id="typing-text">The Latest Adventures</p>
+
+{% if entries %}
+    {% for entry in entries %}
+        <main>
+            <p>{{ entry.entry_text }}</p>
+            <img src="{{ url_for('serve_image', id=entry.id) }}" alt="Image for Entry {{ entry.id }}">
+        </main>
+    {% endfor %}
+{% else %}
+    <p>No entries found.</p>
+{% endif %}
+
+
+
+{% endblock %}
